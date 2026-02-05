@@ -1,0 +1,100 @@
+<div class="relative flex py-8 items-center container mx-auto px-6">
+    <div class="flex-grow border-t-2 border-emerald-100/30"></div>
+    <div class="flex items-center mx-4 space-x-3 text-emerald-300/50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 transform -rotate-12" fill="currentColor"
+            viewBox="0 0 256 256">
+            <path
+                d="M108,80a28,28,0,1,0-28-28A28,28,0,0,0,108,80Zm72-12a28,28,0,1,0-28-28A28,28,0,0,0,180,68ZM68,136a28,28,0,1,0-28-28A28,28,0,0,0,68,136Zm148-28a28,28,0,1,0-28,28A28,28,0,0,0,216,108ZM128,120c-30.93,0-56,22.21-56,49.62,0,13.4,6.07,25.64,17.1,34.46a8,8,0,0,1,2.9,6.09L92,232a8,8,0,0,0,8,8h56a8,8,0,0,0,8-8l0-21.83a8,8,0,0,1,2.9-6.09c11-8.82,17.1-21.06,17.1-34.46C184,142.21,158.93,120,128,120Z">
+            </path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" fill="currentColor"
+            viewBox="0 0 256 256">
+            <path
+                d="M108,80a28,28,0,1,0-28-28A28,28,0,0,0,108,80Zm72-12a28,28,0,1,0-28-28A28,28,0,0,0,180,68ZM68,136a28,28,0,1,0-28-28A28,28,0,0,0,68,136Zm148-28a28,28,0,1,0-28,28A28,28,0,0,0,216,108ZM128,120c-30.93,0-56,22.21-56,49.62,0,13.4,6.07,25.64,17.1,34.46a8,8,0,0,1,2.9,6.09L92,232a8,8,0,0,0,8,8h56a8,8,0,0,0,8-8l0-21.83a8,8,0,0,1,2.9-6.09c11-8.82,17.1-21.06,17.1-34.46C184,142.21,158.93,120,128,120Z">
+            </path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 transform rotate-12" fill="currentColor"
+            viewBox="0 0 256 256">
+            <path
+                d="M108,80a28,28,0,1,0-28-28A28,28,0,0,0,108,80Zm72-12a28,28,0,1,0-28-28A28,28,0,0,0,180,68ZM68,136a28,28,0,1,0-28-28A28,28,0,0,0,68,136Zm148-28a28,28,0,1,0-28,28A28,28,0,0,0,216,108ZM128,120c-30.93,0-56,22.21-56,49.62,0,13.4,6.07,25.64,17.1,34.46a8,8,0,0,1,2.9,6.09L92,232a8,8,0,0,0,8,8h56a8,8,0,0,0,8-8l0-21.83a8,8,0,0,1,2.9-6.09c11-8.82,17.1-21.06,17.1-34.46C184,142.21,158.93,120,128,120Z">
+            </path>
+        </svg>
+    </div>
+    <div class="flex-grow border-t-2 border-emerald-100/30"></div>
+</div>
+
+<div class="p-8 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-black text-slate-800 mb-2">Historias de Éxito</h1>
+        <p class="text-slate-500 font-medium">Conoce a nuestros pacientes que ya están de vuelta en casa.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        @for (paciente of pacientes; track paciente.nombre) {
+        <div
+            class="group relative bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="relative">
+                    <img [src]="paciente.avatar"
+                        class="w-16 h-16 rounded-2xl bg-slate-50 p-2 border border-slate-100 group-hover:rotate-6 transition-transform">
+                    <span class="absolute -bottom-1 -right-1 flex h-4 w-4">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span
+                            class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white"></span>
+                    </span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-slate-800">{{paciente.nombre}}</h3>
+                    <span
+                        class="text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100/50">
+                        {{paciente.especie}}
+                    </span>
+                    <span
+                        class="text-[10px] font-black uppercase tracking-widest text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md border border-indigo-100/50">
+                        💉 {{paciente.tratamiento}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="relative mb-6">
+                <svg class="absolute -top-2 -left-2 w-8 h-8 text-slate-100 -z-10" fill="currentColor"
+                    viewBox="0 0 32 32">
+                    <path d="M10 8v8H6v6h6V8h-2zm12 0v8h-4v6h6V8h-2z" />
+                </svg>
+                <p class="text-slate-600 italic text-sm leading-relaxed">
+                    "{{paciente.comentario}}"
+                </p>
+            </div>
+
+            <hr class="border-slate-50 mb-4">
+
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Progreso de salud</span>
+                <span class="text-sm font-black" [ngClass]="{
+                    'text-red-500': paciente.urgencia === 'alta',
+                    'text-amber-500': paciente.urgencia === 'media',
+                    'text-emerald-500': paciente.urgencia === 'baja'
+                }">{{paciente.recuperacion}}%</span>
+            </div>
+
+            <div class="w-full bg-slate-100 rounded-full h-2 mb-1 overflow-hidden">
+                <div class="h-full rounded-full transition-all duration-1000"
+                    [ngStyle]="{'width': paciente.recuperacion + '%'}" [ngClass]="{
+                        'bg-red-500': paciente.urgencia === 'alta',
+                        'bg-amber-400': paciente.urgencia === 'media',
+                        'bg-emerald-500': paciente.urgencia === 'baja'
+                    }">
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="relative flex py-10 items-center container mx-auto px-6 opacity-30">
+    <div class="flex-grow border-t border-emerald-100"></div>
+    <div class="mx-4 text-emerald-200">🐾</div>
+    <div class="flex-grow border-t border-emerald-100"></div>
+</div>

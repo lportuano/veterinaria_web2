@@ -1,0 +1,63 @@
+<footer class="bg-gray-50 border-t border-emerald-100">
+    <div class="container px-6 py-12 mx-auto">
+
+        <div class="flex justify-center space-x-8 mb-10 text-blue-700 font-black uppercase text-xs tracking-widest">
+            @for (enlace of enlaces; track enlace.texto) {
+            <a href="#" class="hover:text-emerald-600 transition-colors">{{enlace.texto}}</a>
+            }
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+            <div class="col-span-1 lg:col-span-1">
+                <div class="flex items-center space-x-2">
+                    <div class="p-1 bg-white rounded-lg border border-emerald-100">
+                        <img src="/images/dog.png" class="h-6 w-6" alt="Logo">
+                    </div>
+                    <span class="text-xl font-black text-emerald-800">Patitas</span>
+                </div>
+                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+                    Comprometidos con el bienestar animal y la tranquilidad de sus familias desde 2010.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-gray-900 uppercase text-xs tracking-widest">Servicios</h3>
+                <div class="flex flex-col mt-4 space-y-2">
+                    <a href="#" class="text-gray-600 hover:text-emerald-600 transition-colors">Consulta General</a>
+                    <a href="#" class="text-gray-600 hover:text-emerald-600 transition-colors">Laboratorio</a>
+                    <a href="#" class="text-gray-600 hover:text-emerald-600 transition-colors">Estética Canina</a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-gray-900 uppercase text-xs tracking-widest">Contacto</h3>
+                <div class="flex flex-col mt-4 space-y-2 text-gray-600">
+                    <p>📍 Av. Principal 123, Ciudad</p>
+                    <p>📞 +593 999 999 999</p>
+                    <p>✉️ contacto@patitas.com</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-gray-900 uppercase text-xs tracking-widest">Redes</h3>
+                <div class="flex mt-4 space-x-4">
+                    <a href="#" class="text-emerald-600 bg-white p-2 rounded-full shadow-sm hover:bg-emerald-600 hover:text-white transition-all" title="Instagram">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                    </a>
+                    <a href="#" class="text-emerald-600 bg-white p-2 rounded-full shadow-sm hover:bg-emerald-600 hover:text-white transition-all" title="Facebook">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-emerald-100 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>© {{anio}} Patitas. Todos los derechos reservados.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:underline">Privacidad</a>
+                <a href="#" class="hover:underline">Términos</a>
+            </div>
+        </div>
+    </div>
+</footer>
