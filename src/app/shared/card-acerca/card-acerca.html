@@ -2,7 +2,15 @@
 
     @for (carta of servicios; track carta.id) {
     <div
-        class="max-w-xs overflow-hidden bg-white rounded-xl shadow-lg dark:bg-gray-800 flex flex-col justify-between transition-transform hover:scale-105 duration-300">
+        class="relative max-w-xs overflow-hidden bg-white rounded-xl shadow-lg dark:bg-gray-800 flex flex-col justify-between transition-transform hover:scale-105 duration-300">
+
+        @if (!carta.activo) {
+        <div class="absolute inset-0 z-10 bg-slate-900/40 flex items-center justify-center backdrop-blur-[1px]">
+            <span class="bg-white text-slate-900 px-3 py-1 rounded-full text-xs font-bold uppercase shadow-lg">
+                Próximamente
+            </span>
+        </div>
+        }
 
         <div class="px-4 py-3">
             <h1 class="text-xl font-black text-emerald-800 uppercase dark:text-white leading-tight">
@@ -13,13 +21,22 @@
             </p>
         </div>
 
-        <img class="object-cover w-full h-48" [src]="carta.imagen" [alt]="carta.nombre">
+        <img 
+            class="object-cover w-full h-48 transition-all duration-500" 
+            [class.grayscale]="!carta.activo"
+            [src]="carta.imagen" 
+            [alt]="carta.nombre">
 
         <div class="flex items-center justify-between px-4 py-4 bg-gray-900">
             <h1 class="text-xl font-bold text-white">
                 ${{carta.precio}}
             </h1>
-
+            
+            @if (carta.activo) {
+                <button class="px-3 py-1 text-xs font-bold text-gray-900 uppercase bg-emerald-400 rounded hover:bg-emerald-300">
+                    Agendar
+                </button>
+            }
         </div>
     </div>
     }
