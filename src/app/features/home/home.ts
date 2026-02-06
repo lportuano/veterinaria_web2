@@ -5,10 +5,12 @@ import { Formulario } from "../../shared/formulario/formulario";
 import { Footer } from "../../shared/footer/footer";
 import { Carrucel } from "../../shared/carrucel/carrucel";
 import { Pacientes } from "../../shared/pacientes/pacientes";
+import { Testimonio } from "../../shared/testimonio/testimonio";
+import { PreguntasComponent } from "../../shared/preguntas/preguntas";
 
 @Component({
   selector: 'app-home',
-  imports: [Hero, Servicio, Formulario, Footer, Carrucel, Pacientes],
+  imports: [Hero, Servicio, Formulario, Footer, Carrucel, Pacientes, Testimonio, PreguntasComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

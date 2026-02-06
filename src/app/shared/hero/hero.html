@@ -1,4 +1,4 @@
-<section class="relative bg-gradient-to-b from-green-50/50 to-white overflow-hidden mt-16 lg:mt-20">
+<section class="relative bg-gradient-to-b from-green-50/50 to-white overflow-hidden mt-16 lg:mt-20" [class]="colorFondo">
     <div class="absolute top-0 right-0 -z-10 opacity-10">
         <svg class="w-96 h-96 transform translate-x-20 -translate-y-20" fill="currentColor" viewBox="0 0 200 200"
             xmlns="http://www.w3.org/2000/svg">
@@ -13,9 +13,8 @@
         <div class="w-full lg:w-1/2">
             <div class="lg:max-w-2xl">
                 <h1 class="text-4xl font-black leading-tight tracking-tight text-gray-900 lg:text-6xl">
-                    El mejor cuidado para <br>
-                    <span class="text-green-600 underline decoration-green-200 decoration-8 underline-offset-4">tu mejor
-                        amigo</span>
+                    {{titulo}} <br>
+                    <span class="text-green-600 underline decoration-green-200 decoration-8 underline-offset-4">{{subtitulo}}</span>
                 </h1>
 
                 <div class="mt-10 space-y-4">
@@ -68,7 +67,7 @@
                 </div>
 
                 <img class="relative object-cover w-full h-[30rem] mx-auto rounded-[2rem] shadow-2xl lg:max-w-2xl transform transition-transform duration-500 hover:scale-[1.02]"
-                    src="https://www.bunko.pet/img/2022/06/10/husky-siberiano-blanco.jpg?__scale=w:1200,h:1200,t:2"
+                    [src]="imagen"
                     alt="Corgi feliz">
             </div>
         </div>

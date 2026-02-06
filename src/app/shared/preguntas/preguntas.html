@@ -1,0 +1,29 @@
+<section [class]="(colorFondo || 'bg-white') + ' py-16 px-4'">
+    <div class="max-w-3xl mx-auto">
+
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-slate-800">{{titulo}}</h2>
+            <p class="text-gray-500 mt-2">{{subtitulo}}</p>
+        </div>
+
+        <div class="space-y-6">
+            <div [class]="(colorTarjetas || 'bg-gray-50') + ' rounded-xl border border-gray-200 p-6 transition-all shadow-sm'">
+                <h4 [class]="(colorTarjetas && colorTarjetas !== 'bg-white' ? 'text-white' : 'text-slate-800') + ' text-lg font-bold mb-3'">
+                    {{preguntas}}
+                </h4>
+                <p [class]="(colorTarjetas && colorTarjetas !== 'bg-white' ? 'text-white/90' : 'text-gray-600') + ' leading-relaxed'">
+                    {{respuestas}}
+                </p>
+            </div>
+
+            <div [class]="(colorTarjetas || 'bg-gray-50') + ' rounded-xl border border-gray-200 p-6 transition-all shadow-sm'">
+                <h4 [class]="(colorTarjetas && colorTarjetas !== 'bg-white' ? 'text-white' : 'text-slate-800') + ' text-lg font-bold mb-3'">
+                    {{preguntas2}}
+                </h4>
+                <p [class]="(colorTarjetas && colorTarjetas !== 'bg-white' ? 'text-white/90' : 'text-gray-600') + ' leading-relaxed'">
+                    {{respuestas2}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

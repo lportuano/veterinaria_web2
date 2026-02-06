@@ -1,0 +1,75 @@
+<section class="bg-gray-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-800">{{titulo}}</h2>
+            <p class="text-gray-500 mt-2">{{subtitulo}}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div [class]="(colorTarjetas || 'bg-white') + ' p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all'" >
+                <div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <span class="text-lg">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">
+                        "La atención fue increíble. Mi gatito estaba muy nervioso pero el equipo supo cómo calmarlo.
+                        ¡Excelente servicio profesional!"
+                    </p>
+                </div>
+
+                <div class="flex items-center mt-6">
+                    <img [src]="imagen" alt="Cliente"
+                        class="w-12 h-12 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">María Gómez</h4>
+                        <p class="text-xs text-gray-400">Dueña de "Luna"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div [class]="(colorTarjetas || 'bg-white') + ' p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all'" >
+                <div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <span class="text-lg">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">
+                        "Instalaciones de primera y un trato muy humano. Se nota que aman a los animales. No cambio de
+                        veterinaria por nada."
+                    </p>
+                </div>
+
+                <div class="flex items-center mt-6">
+                    <img [src]="imagen2" alt="Cliente"
+                        class="w-12 h-12 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">Carlos Ruiz</h4>
+                        <p class="text-xs text-gray-400">Dueño de "Max"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div [class]="(colorTarjetas || 'bg-white') + ' p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all'" >
+                <div>
+                    <div class="flex text-yellow-400 mb-4">
+                        <span class="text-lg">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed">
+                        "El sistema de fichas médicas online me encanta, puedo ver el historial de mi mascota en
+                        cualquier momento. Muy modernos."
+                    </p>
+                </div>
+
+                <div class="flex items-center mt-6">
+                    <img [src]="imagen3" alt="Cliente"
+                        class="w-12 h-12 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">Ana Pérez</h4>
+                        <p class="text-xs text-gray-400">Dueña de "Toby"</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

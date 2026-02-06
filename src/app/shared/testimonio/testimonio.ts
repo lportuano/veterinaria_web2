@@ -1,18 +1,20 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-testimonio',
   imports: [],
-  templateUrl: './hero.html',
-  styleUrl: './hero.css',
+  templateUrl: './testimonio.html',
+  styleUrl: './testimonio.css',
 })
-export class Hero {
+export class Testimonio {
 
-  //los datos vacios que llenaremos en cada uso del componente
   @Input() titulo!: string;
   @Input() subtitulo!: string;
   @Input() descripcion!: string;
   @Input() imagen!: string;
   @Input() colorFondo!: string;
+  @Input() imagen2!: string;
+  @Input() imagen3!: string;
+  @Input() colorTarjetas!: string;
 
 }
