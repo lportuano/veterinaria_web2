@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import { getAuth, signInWithEmailAndPassword, signOut, User } from 'firebase/auth';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class OutService {
+
+  usuario: User | null = null;
+
+  private auth = getAuth();
+
+  login(email: string, password: string) {
+    signInWithEmailAndPassword(this.auth, email, password)
+      .then(respuesta => this.usuario = respuesta.user)
+      .catch(error => console.error('No puede iniciar sesion', error.message));
+  }
+
+  logout() {
+    signOut(this.auth);
+    this.usuario = null;
+  }
+
+}
