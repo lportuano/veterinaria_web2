@@ -1,24 +1,47 @@
-import { Injectable } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, signOut, User } from 'firebase/auth';
+import { inject, Injectable, signal } from '@angular/core';
+import { getAuth } from 'firebase/auth';
+import { UsuarioServicio } from './usuario-servicio';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OutService {
 
-  usuario: User | null = null;
+  private servicioUsuario = inject(UsuarioServicio);
 
-  private auth = getAuth();
+  //localstorage
+  sesionIniciada = signal<boolean>(localStorage.getItem('sesion') === 'true');
 
-  login(email: string, password: string) {
-    signInWithEmailAndPassword(this.auth, email, password)
-      .then(respuesta => this.usuario = respuesta.user)
-      .catch(error => console.error('No puede iniciar sesion', error.message));
+  //Accedemos al rol del usuario
+  rolActual = signal<string | null>(localStorage.getItem('rol'));
+
+  login(email: string, password: string): Observable<boolean> {
+    return this.servicioUsuario.getUsuario().pipe(
+      map(usuarios => {
+        const usuarioCoincide = usuarios.find(u => u.email === email && u.password === password);
+        if(usuarioCoincide){
+          localStorage.setItem('sesion', 'true');
+          //guardar los datos convirtiendo el objeto json a texto
+          localStorage.setItem('user', JSON.stringify(usuarioCoincide));
+
+          localStorage.setItem('rol', usuarioCoincide.rol);
+          this.rolActual.set(usuarioCoincide.rol);
+
+          this.sesionIniciada.set(true);
+          return true;
+        }
+        return false;
+      })
+    )
   }
 
   logout() {
-    signOut(this.auth);
-    this.usuario = null;
+    localStorage.removeItem('sesion');
+    localStorage.removeItem('user');
+    this.sesionIniciada.set(false);
+    localStorage.removeItem('rol');
+    this.rolActual.set(null)
   }
 
 }

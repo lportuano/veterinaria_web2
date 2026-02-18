@@ -20,10 +20,13 @@
             <input [(ngModel)]="nuevoUsuario.phone" name="phone" type="text" placeholder="Teléfono" required
                 class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
 
+            <input [(ngModel)]="nuevoUsuario.password" name="password" type="text" placeholder="*****" required
+                class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+
             <button (click)="mensaje()" type="submit"
                 class="md:col-span-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-indigo-200">
                 {{editando ? 'Actualizar usuario' : 'Registrar usuario'}}
-                
+
             </button>
         </form>
     </div>
@@ -37,6 +40,7 @@
                     <th class="p-4 font-semibold uppercase text-sm">Email</th>
                     <th class="p-4 font-semibold uppercase text-sm">Teléfono</th>
                     <th class="p-4 font-semibold uppercase text-sm">Acciones</th>
+
                 </tr>
             </thead>
 
@@ -48,8 +52,12 @@
                     <td class="p-4 text-slate-600">{{usuario.email}}</td>
                     <td class="p-4 text-slate-600">{{usuario.phone}}</td>
                     <td class="p-4 text-slate-600">
+                        @if (servicioAuth.rolActual()==='ADMIN') {
                         <button (click)="seleccionarParaEditar(usuario)" class="pr-10">✏️​</button>
                         <button (click)="eliminarsuario(usuario.id!)">🗑️​​</button>
+                        }@else {
+                        <span>🔒​</span>
+                        }
                     </td>
                 </tr>
                 }@empty {
