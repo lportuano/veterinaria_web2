@@ -12,13 +12,18 @@ export const routes: Routes = [
     //1. Ruta inicial
     { path: '', component: Home },
     //2. Rutas de navegación
-    { path: 'acerca', component: Acerca },
+    
     { path: 'login', component: Login },
     { path: 'cuenta', component: FormularioCuenta },
-    { path: 'consultas', component: Consultas },
+    
+    { path: 'consultas', component: Consultas, canActivateChild: [authChildGuard], children: [
+        { path: 'ver', component: Consultas } 
+        ]
+    },
 
     { path: '', canActivateChild: [authChildGuard], children: [
             { path: 'mascotas', component: Mascotas },
+            { path: 'acerca', component: Acerca },
         ]
     },
 

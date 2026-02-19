@@ -3,10 +3,11 @@ import { Mascota } from '../../models/mascota';
 import { DetalleMascota } from "../../shared/detalle-mascota/detalle-mascota";
 import { Hero } from "../../shared/hero/hero";
 import { PreguntasComponent } from "../../shared/preguntas/preguntas";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-consultas',
-  imports: [DetalleMascota, Hero, PreguntasComponent],
+  imports: [DetalleMascota, Hero, PreguntasComponent, RouterLink],
   templateUrl: './consultas.html',
   styleUrl: './consultas.css',
 })

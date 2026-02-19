@@ -16,10 +16,6 @@ export const authGuard: CanActivateFn = (route, state) => {
 
 
 
-
-
-
-
 export const authChildGuard: CanActivateChildFn = (route, state) => {
 
   const servicioAuth = inject(OutService);
