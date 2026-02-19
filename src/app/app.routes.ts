@@ -6,19 +6,21 @@ import { Mascotas } from './shared/mascotas/mascotas';
 import { Usuarios } from './features/usuarios/usuarios';
 import { FormularioCuenta } from './shared/formulario-cuenta/formulario-cuenta';
 import { Login } from './shared/login/login';
-import { authGuard } from './guards/auth-guard';
+import { authChildGuard, authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
     //1. Ruta inicial
     { path: '', component: Home },
-    //2. Rutas de navegacion
+    //2. Rutas de navegación
     { path: 'acerca', component: Acerca },
-    { path: 'consultas', component: Consultas },
-    { path: 'mascotas', component: Mascotas },
-    { path: 'usuario', component: Usuarios, canActivate:[authGuard] },
-    { path: 'cuenta', component: FormularioCuenta },
     { path: 'login', component: Login },
-    
-    //3. Redireccion si el usuario escribe una url que no existe
-    //{path: '**', component:Pagina404}
+    { path: 'cuenta', component: FormularioCuenta },
+    { path: 'consultas', component: Consultas },
+
+    { path: '', canActivateChild: [authChildGuard], children: [
+            { path: 'mascotas', component: Mascotas },
+        ]
+    },
+
+    { path: 'usuario', component: Usuarios, canActivate: [authGuard] },
 ];
