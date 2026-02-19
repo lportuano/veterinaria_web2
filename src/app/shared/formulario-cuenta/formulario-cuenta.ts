@@ -64,7 +64,7 @@ export class FormularioCuenta {
         })
         //si la promesa no se cunple
         .catch((error) =>
-          console.log('No se pueden enviar lo datos' + error));
+          console.log('No se pueden enviar lo datos', error));
     }
   }
 }
