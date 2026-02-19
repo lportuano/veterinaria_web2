@@ -1,6 +1,6 @@
 <div class="flex min-h-screen items-center justify-center bg-gray-100 p-4">
     <div class="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
-        <h2 class="mb-6 text-2xl font-bold text-center text-gray-800">Crea tu cuenta</h2>
+        <h2 class="mb-6 text-2xl font-bold text-center text-gray-800">🐶​ Envianos tu opinion 🐶​</h2>
 
         <form [formGroup]="formCuenta" (ngSubmit)="mostrarDatos()" class="space-y-4">
             <div>
@@ -16,30 +16,18 @@
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-gray-700">Contraseña</label>
-                <input formControlName="password" type="text" placeholder="********"
-                    class="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                    @if (formCuenta.get('password')?.invalid && formCuenta.get('password')?.touched){
+                <label for="comentario" class="block text-sm font-medium text-gray-700">Comentario</label>
+                <textarea formControlName="comentario" type="text" name="comentario" id="comentario" cols="10" rows="10" class="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+                    @if (formCuenta.get('comentario')?.invalid && formCuenta.get('comentario')?.touched){
                         <p class="mt-2 text-sm text-red-600">
-                            Debe tener minimo 8 caracteres entre numeros y letras
-                        </p>
-                        }
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Confirmar contraseña</label>
-                <input formControlName="repeatPassword" type="text" placeholder="********"
-                    class="mt-1 w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                    @if (formCuenta.hasError('noCoinciden') && formCuenta.get('repeatPassword')?.touched){
-                        <p class="mt-2 text-sm text-red-600">
-                            Las contraseñas deben ser iguales
+                            Su comentario es requerido
                         </p>
                         }
             </div>
 
             <button type="submit" [disabled]="formCuenta.invalid"
                 class="w-full rounded-md bg-blue-600 py-2 text-white font-semibold hover:bg-blue-700 transition-colors duration-300">
-                Registrar
+                Enviar comentario
             </button>
         </form>
     </div>

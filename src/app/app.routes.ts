@@ -15,11 +15,15 @@ export const routes: Routes = [
     
     { path: 'login', component: Login },
     { path: 'cuenta', component: FormularioCuenta },
+
+    //implementacion del CanActivateChild
     
     { path: 'consultas', component: Consultas, canActivateChild: [authChildGuard], children: [
         { path: 'ver', component: Consultas } 
         ]
     },
+
+    //ocultar componente hija en consultas
 
     { path: '', canActivateChild: [authChildGuard], children: [
             { path: 'mascotas', component: Mascotas },
