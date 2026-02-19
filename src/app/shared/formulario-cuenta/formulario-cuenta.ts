@@ -46,7 +46,6 @@ export class FormularioCuenta {
       //URLSearchParams -> crea un objeto especial que formatea los datos del formulario como una URL (email%)
       const contenido = new URLSearchParams();
       contenido.set('form-name', 'contacto');
-      contenido.set('bot-field', '');
       contenido.set('email', this.formCuenta.value.email ?? '');
       contenido.set('comentario', this.formCuenta.value.comentario ?? '');
 
@@ -65,7 +64,7 @@ export class FormularioCuenta {
         })
         //si la promesa no se cunple
         .catch((error) =>
-          console.log('No se pueden enviar lo datos', error));
+          console.log('No se pueden enviar lo datos' + error));
     }
   }
 }
