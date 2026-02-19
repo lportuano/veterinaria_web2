@@ -6,7 +6,8 @@ import { Mascotas } from './shared/mascotas/mascotas';
 import { Usuarios } from './features/usuarios/usuarios';
 import { FormularioCuenta } from './shared/formulario-cuenta/formulario-cuenta';
 import { Login } from './shared/login/login';
-import { authChildGuard, authGuard } from './guards/auth-guard';
+import { authGuard } from './guards/auth-guard';
+import { childGuardGuard } from './guards/child-guard-guard';
 
 export const routes: Routes = [
     //1. Ruta inicial
@@ -18,14 +19,14 @@ export const routes: Routes = [
 
     //implementacion del CanActivateChild
     
-    { path: 'consultas', component: Consultas, canActivateChild: [authChildGuard], children: [
+    { path: 'consultas', component: Consultas, canActivateChild: [childGuardGuard], children: [
         { path: 'ver', component: Consultas } 
         ]
     },
 
     //ocultar componente hija en consultas
 
-    { path: '', canActivateChild: [authChildGuard], children: [
+    { path: '', canActivateChild: [childGuardGuard], children: [
             { path: 'mascotas', component: Mascotas },
             { path: 'acerca', component: Acerca },
         ]

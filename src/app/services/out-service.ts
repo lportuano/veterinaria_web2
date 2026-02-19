@@ -8,6 +8,8 @@ import { map, Observable } from 'rxjs';
 })
 export class OutService {
 
+  
+
   private servicioUsuario = inject(UsuarioServicio);
 
   //localstorage

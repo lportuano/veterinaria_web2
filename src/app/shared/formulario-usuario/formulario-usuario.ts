@@ -44,6 +44,8 @@ export class FormularioUsuario {
     alert('Gracias por registrarte');
   }
 
+  //cambio CanDeActivate
+
   //metodo GUARDAR
   guardarUsuario() {
     if (this.editando && this.nuevoUsuario.id) {

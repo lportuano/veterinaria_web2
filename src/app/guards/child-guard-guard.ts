@@ -1,8 +1,8 @@
 import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { CanActivateChildFn, Router } from '@angular/router';
 import { OutService } from '../services/out-service';
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const childGuardGuard: CanActivateChildFn = (route, state) => {
 
   const servicioAuth = inject(OutService);
 
@@ -13,6 +13,3 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
   return router.parseUrl('/login');
 };
-
-
-
