@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from "@angular/router";
+import { OutService } from '../../services/out-service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,6 +10,7 @@ import { Router, RouterLink } from "@angular/router";
 })
 export class NavBar {
 
+  public servicioAuth = inject(OutService)
   private router = inject(Router);
 
   cerrarSesion() {

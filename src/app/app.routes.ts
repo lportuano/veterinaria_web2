@@ -8,10 +8,13 @@ import { FormularioCuenta } from './shared/formulario-cuenta/formulario-cuenta';
 import { Login } from './shared/login/login';
 import { authGuard } from './guards/auth-guard';
 import { childGuardGuard } from './guards/child-guard-guard';
+import { adminMatchGuard, publicmatchGuard } from './guards/match-guard';
+import { outAuthGuard } from './guards/outh-guard-guard';
+
 
 export const routes: Routes = [
     //1. Ruta inicial
-    { path: '', component: Home },
+    { path: '', component: Home, canMatch:[publicmatchGuard]},
     //2. Rutas de navegación
     
     { path: 'login', component: Login },
@@ -19,7 +22,7 @@ export const routes: Routes = [
 
     //implementacion del CanActivateChild
     
-    { path: 'consultas', component: Consultas, canActivateChild: [childGuardGuard], children: [
+    { path: 'consultas', component: Consultas, canMatch:[adminMatchGuard], canActivateChild: [childGuardGuard], children: [
         { path: 'ver', component: Consultas } 
         ]
     },
@@ -28,9 +31,9 @@ export const routes: Routes = [
 
     { path: '', canActivateChild: [childGuardGuard], children: [
             { path: 'mascotas', component: Mascotas },
-            { path: 'acerca', component: Acerca },
         ]
     },
 
-    { path: 'usuario', component: Usuarios, canActivate: [authGuard] },
+    { path: 'acerca', component: Acerca, canMatch:[publicmatchGuard] },
+    { path: 'usuario', component: Usuarios, canActivate: [authGuard], canDeactivate:[outAuthGuard], canMatch:[adminMatchGuard] },
 ];
